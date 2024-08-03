@@ -1,41 +1,50 @@
-// src/CountryInfoPage.js
-
 import React from 'react';
-import { useReactTable, getCoreRowModel, getFilteredRowModel, getPaginationRowModel, getSortedRowModel, flexRender } from '@tanstack/react-table';
+import { useReactTable, getCoreRowModel, getFilteredRowModel, getPaginationRowModel, getSortedRowModel, flexRender, ColumnDef, RowData } from '@tanstack/react-table';
 import PopulationFilterDropdown from './components/PopulationFilterDropdown';
-import SearchBox from "./components/SearchBox"
+import SearchBox from "./components/SearchBox";
 import Clear from './components/Clear';
-import ShowAllCountries from "./components/ShowAllCountry"
+import ShowAllCountries from "./components/ShowAllCountry";
 import useCountryInfo from './hooks/useCountryInfo'; // Import the custom hook
 import './CountryInfoPage.css'; // Import the CSS file
 
-const CountryInfoPage = () => {
-  const { countries, searchTerm, handleSearchText, handleClear,getAllCountries } = useCountryInfo();
+// Define the Country type
+interface Country {
+  name: string;
+  abbreviation: string;
+  capital: string;
+  phone: string;
+  population: number;
+  media: {
+    flag: string;
+    emblem: string;
+  };
+}
 
-  const columns = React.useMemo(
-    () => [
-      { accessorKey: 'name', header: 'Country Name' },
-      { accessorKey: 'abbreviation', header: 'Code' },
-      { accessorKey: 'capital', header: 'Capital' },
-      { accessorKey: 'phone', header: 'Ph Code' },
-      { accessorKey: 'population', header: 'Population' },
-      {
-        accessorKey: 'media.flag',
-        header: 'Flag',
-        cell: ({ getValue }) => (
-          <img src={getValue()} alt="flag" style={{ width: '50px' }} />
-        ),
-      },
-      {
-        accessorKey: 'media.emblem',
-        header: 'Emblem',
-        cell: ({ getValue }) => (
-          <img src={getValue()} alt="emblem" style={{ width: '50px' }} />
-        ),
-      },
-    ],
-    []
-  );
+// Define the column definition type
+const columns: ColumnDef<Country, any>[] = [
+  { accessorKey: 'name', header: 'Country Name' },
+  { accessorKey: 'abbreviation', header: 'Code' },
+  { accessorKey: 'capital', header: 'Capital' },
+  { accessorKey: 'phone', header: 'Ph Code' },
+  { accessorKey: 'population', header: 'Population' },
+  {
+    accessorKey: 'media.flag',
+    header: 'Flag',
+    cell: ({ getValue }) => (
+      <img src={getValue() as string} alt="flag" style={{ width: '50px' }} />
+    ),
+  },
+  {
+    accessorKey: 'media.emblem',
+    header: 'Emblem',
+    cell: ({ getValue }) => (
+      <img src={getValue() as string} alt="emblem" style={{ width: '50px' }} />
+    ),
+  },
+];
+
+const CountryInfoPage: React.FC = () => {
+  const { countries, searchTerm, handleSearchText, handleClear, getAllCountries } = useCountryInfo();
 
   const table = useReactTable({
     data: countries,
@@ -77,7 +86,7 @@ const CountryInfoPage = () => {
                         {{
                           asc: ' 🔼',
                           desc: ' 🔽',
-                        }[header.column.getIsSorted()] ?? null}
+                        }[header.column.getIsSorted() as 'asc' | 'desc'] ?? null}
                       </div>
                     )}
                 </th>

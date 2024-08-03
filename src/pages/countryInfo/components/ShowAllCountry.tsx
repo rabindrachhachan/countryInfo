@@ -1,12 +1,14 @@
-// src/ShowAllCountries.js
-
 import React from 'react';
-import axios from 'axios';
 import './ShowAllCountry.css'; // Optional: for styling
 
-const ShowAllCountries = ({ getAllCountries }) => {
+// Define the interface for the component props
+interface ShowAllCountriesProps {
+  getAllCountries: () => void;
+}
+
+const ShowAllCountries: React.FC<ShowAllCountriesProps> = ({ getAllCountries }) => {
   const handleClick = () => {
-    getAllCountries()
+    getAllCountries();
   };
 
   return (

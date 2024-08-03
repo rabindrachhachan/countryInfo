@@ -1,19 +1,28 @@
-// src/PopulationFilterDropdown.js
-
 import React, { useState } from 'react';
 import './PopulationFilterDropdown.css'; // Import the CSS file for styling
 
-const PopulationFilterDropdown = ({ onChange }) => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [selectedOption, setSelectedOption] = useState('');
+// Define the interface for the component props
+interface PopulationFilterDropdownProps {
+  onChange: (value: number) => void;
+}
 
-  const options = [
+// Define the interface for the options
+interface Option {
+  label: string;
+  value: number;
+}
+
+const PopulationFilterDropdown: React.FC<PopulationFilterDropdownProps> = ({ onChange }) => {
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [selectedOption, setSelectedOption] = useState<string>('');
+
+  const options: Option[] = [
     { label: '< 1M', value: 1000000 },
     { label: '< 5M', value: 5000000 },
     { label: '< 10M', value: 10000000 },
   ];
 
-  const handleOptionClick = (value, label) => {
+  const handleOptionClick = (value: number, label: string) => {
     setSelectedOption(label);
     setIsOpen(false);
     onChange(value);

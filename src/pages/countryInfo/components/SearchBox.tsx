@@ -1,9 +1,13 @@
-// src/Components/SearchBox.js
-
 import React from 'react';
 import './SearchBox.css'; // Optional: for styling
 
-const SearchBox = ({ value, onChange }) => {
+// Define the interface for the component props
+interface SearchBoxProps {
+  value: string;
+  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+}
+
+const SearchBox: React.FC<SearchBoxProps> = ({ value, onChange }) => {
   return (
     <input
       type="text"

@@ -1,9 +1,12 @@
-// src/Clear.js
-
 import React from 'react';
 import './Clear.css'; // Optional: for styling
 
-const Clear = ({ onClick }) => {
+// Define the interface for the component props
+interface ClearProps {
+  onClick: () => void;
+}
+
+const Clear: React.FC<ClearProps> = ({ onClick }) => {
   return (
     <span 
       className="clear-text"
