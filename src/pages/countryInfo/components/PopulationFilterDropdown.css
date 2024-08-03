@@ -1,0 +1,74 @@
+/* src/PopulationFilterDropdown.css */
+
+.dropdown-container {
+  position: relative;
+  width: 100%; /* Full width on smaller screens */
+  max-width: 200px; /* Max width to maintain layout on larger screens */
+  margin-right: 10px;
+}
+
+.dropdown-header {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #f9f9f9;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 16px; /* Consistent font size */
+}
+
+.dropdown-icon {
+  margin-left: 10px;
+}
+
+.dropdown-list {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  display: none; /* Hidden by default, shown on dropdown open */
+}
+
+.dropdown-item {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.dropdown-item:hover {
+  background-color: #f0f0f0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .dropdown-container {
+    width: 100%; /* Full width on smaller screens */
+    margin-right: 0; /* Remove margin on smaller screens */
+  }
+  
+  .dropdown-header {
+    font-size: 14px; /* Smaller font size on smaller screens */
+    padding: 8px; /* Reduce padding on smaller screens */
+  }
+
+  .dropdown-item {
+    padding: 8px; /* Reduce padding on smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .dropdown-header {
+    font-size: 12px; /* Even smaller font size on very small screens */
+    padding: 6px; /* Further reduce padding on very small screens */
+  }
+
+  .dropdown-item {
+    padding: 6px; /* Further reduce padding on very small screens */
+  }
+}

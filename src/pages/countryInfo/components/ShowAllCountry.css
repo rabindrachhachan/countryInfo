@@ -1,0 +1,16 @@
+.show-all-button {
+    background-color: #4CAF50; /* Button color */
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+    border-radius: 4px;
+    text-align: center;
+    display: inline-block;
+    font-size: 16px;
+    margin-bottom: 24px;
+  }
+  
+  .show-all-button:hover {
+    background-color: #45a049;
+  }

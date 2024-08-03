@@ -1,0 +1,13 @@
+/* src/Clear.css */
+
+.clear-text {
+    color: purple;
+    text-decoration: underline;
+    cursor: pointer;
+    margin-top: 12px;
+  }
+  
+  .clear-text:hover {
+    text-decoration: none; /* Optional: remove underline on hover */
+  }
+  

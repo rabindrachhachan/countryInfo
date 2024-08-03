@@ -1,0 +1,52 @@
+/* src/CountryInfoPage.css */
+
+.page-container {
+    margin: 20px;
+  }
+  
+  .controls {
+    display: flex;
+    align-items: center;
+    gap: 16px; /* Space between components */
+    margin-bottom: 16px; /* Space below the controls */
+  }
+  
+  .controls > * {
+    margin: 0; /* Remove default margin from children */
+  }
+  
+  .controls input, .controls button {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .controls input {
+    flex: 1;
+  }
+  
+  .controls button {
+    background-color: #f0f0f0;
+    cursor: pointer;
+  }
+  
+  .controls button:hover {
+    background-color: #e0e0e0;
+  }
+  
+  table th, table td {
+    text-align: left;
+  }
+
+
+  
+  input[type="text"], .population-filter-dropdown, .clear-text, .show-all-button {
+    font-size: 16px; /* Consistent font size */
+    padding: 8px 12px; /* Consistent padding */
+    border: 1px solid #ccc; /* Border for input and dropdown */
+    border-radius: 4px; /* Rounded corners */
+  }
+  
+  input[type="text"], .population-filter-dropdown {
+    width: 200px; /* Consistent width */
+  }
